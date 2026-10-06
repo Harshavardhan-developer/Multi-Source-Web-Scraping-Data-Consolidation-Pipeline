@@ -1,0 +1,34 @@
+{
+    "per_source": {
+        "Books to Scrape": {
+            "raw_collected": 1000,
+            "after_cleaning": 1000,
+            "rejected_total": 0,
+            "rejected_by_reason": {},
+            "duplicates_removed": 1,
+            "final_count": 999
+        },
+        "Quotes to Scrape": {
+            "raw_collected": 100,
+            "after_cleaning": 100,
+            "rejected_total": 0,
+            "rejected_by_reason": {},
+            "duplicates_removed": 0,
+            "final_count": 100
+        }
+    },
+    "totals": {
+        "raw_collected": 1100,
+        "after_cleaning": 1100,
+        "rejected_total": 0,
+        "duplicates_removed": 1,
+        "final_record_count": 1099,
+        "reconciles": true
+    },
+    "run": {
+        "start_time": "2026-10-06T09:36:51+00:00",
+        "end_time": "2026-10-06T09:52:38+00:00",
+        "duration_seconds": 946.41,
+        "book_detail_pages_fetched": true
+    }
+}

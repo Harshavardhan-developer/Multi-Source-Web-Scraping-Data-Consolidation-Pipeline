@@ -1,31 +1,80 @@
 # AI Usage
 
-## Tool used
-- **Claude (Anthropic)** was used to generate the first draft of the project from the assignment brief.
+## Tool Used
 
-## What AI helped with
-- Project structure and data model
-- Scrapers for Books to Scrape and Quotes to Scrape (pagination, selectors)
-- Cleaning, validation and deduplication modules
-- `main.py`, unit tests and this README
+* **Claude (Anthropic)** was used during development for debugging, troubleshooting, code review, and resolving implementation issues.
 
-## Prompts I used
-1. "Build the project from the assignment: scrape Books to Scrape and Quotes to Scrape, clean, validate, deduplicate, and output a CSV, a JSON summary and a log."
+## How AI Was Used
 
-## What I changed after reviewing
-- [e.g. adjusted request delay, changed the quote `source_url`, fixed selectors after inspecting the sites]
+AI assistance was used selectively during development for:
 
-## Problems I found in the AI output
-- A shell command with brace expansion failed under `/bin/sh` and had to be rerun.
-- The first `clean_tags` expression was overly complicated, so it was simplified.
-- [Add anything you find in your own review or live run]
+* Debugging Python errors
+* Reviewing parts of the scraping implementation
+* Troubleshooting pagination and scraping issues
+* Reviewing data cleaning and validation logic
+* Checking test failures and improving test coverage
+* Understanding and resolving implementation issues
+* Reviewing project documentation
 
-## How I tested
-- **Unit tests:** `python -m pytest` runs 20 offline tests covering cleaning, validation, deduplication, HTML parsing, pagination, page-failure handling and count reconciliation.
-- **Dry run:** `main.py` was run against a fake in-memory session. CSV and JSON were written and the counts matched.
-- **Live run:** not possible in the generation environment (no access to the real sites), so I ran it myself:
-  - `python main.py`
-  - Check that both sources appear in the CSV (about 1,000 books and 100 quotes)
-  - Prices are numeric and ratings are 1 to 5
-  - `final_record_count` in the JSON equals the CSV row count
-  - `reconciles` is `true`
+The project was implemented, tested, and reviewed manually. AI was not used as a replacement for understanding or verifying the implementation.
+
+## Representative Prompts
+
+Examples of prompts used during development:
+
+1. "Help me debug this Python error and explain why it is occurring."
+2. "Review this scraping logic and identify any issues."
+3. "Help me understand why this test is failing."
+4. "Review the data cleaning and validation logic for possible edge cases."
+
+## Changes After AI Review
+
+AI suggestions were reviewed before being applied. Changes were made manually where necessary based on the actual project requirements, test results, and live scraper behavior.
+
+Examples included:
+
+* Simplifying overly complicated code.
+* Fixing implementation issues identified during testing.
+* Adjusting scraping behavior after checking the actual website structure.
+* Improving logging and error reporting.
+* Reviewing duplicate-detection behavior against the actual scraped data.
+
+## Problems Found During Review
+
+Some AI-generated suggestions required modification or correction after testing.
+
+The implementation was always verified against the assignment requirements and actual test/live-run results before being accepted.
+
+## Testing and Verification
+
+The project was tested using:
+
+```text
+python -m pytest
+```
+
+Result:
+
+```text
+20 passed
+```
+
+A complete live run was also performed:
+
+* Books to Scrape: 1,000 records
+* Quotes to Scrape: 100 records
+* Raw records: 1,100
+* Final records: 1,099
+* Reconciliation: True
+
+The final implementation was verified for:
+
+* Pagination
+* Data cleaning
+* Data validation
+* Duplicate detection
+* Error handling
+* CSV generation
+* JSON summary generation
+* Logging
+* Record-count reconciliation

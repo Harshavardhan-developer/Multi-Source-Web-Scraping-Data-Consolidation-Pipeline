@@ -64,7 +64,7 @@ Fields that don't apply are left empty (for example, quotes have no price). Noth
 - No resume/checkpoint support.
 
 ## Project structure
-
+```
 Multi-Source-Web-Scraping-Data-Consolidation-Pipeline/
 ├── main.py
 ├── config.py
@@ -89,3 +89,7 @@ Multi-Source-Web-Scraping-Data-Consolidation-Pipeline/
 │   └── test_pipeline.py
 ├── output/
 └── logs/
+```
+
+## AI usage
+See [AI_USAGE.md](AI_USAGE.md).

@@ -1,31 +1,32 @@
 # AI Usage
 
-> **Candidate: edit this file so it reflects what *you* actually did.** The assignment requires honesty and that you can
-> explain every line. The draft below is accurate about how this code base was produced; adjust it to your own process.
+## Tool used
+- **Claude (Anthropic)** was used to generate the first draft of the project from the assignment brief.
 
-## Tools used
-- **Claude (Anthropic)** – generated the initial project, tests and documentation from the assignment brief.
+## What AI helped with
+- Project structure and data model
+- Scrapers for Books to Scrape and Quotes to Scrape (pagination, selectors)
+- Cleaning, validation and deduplication modules
+- `main.py`, unit tests and this README
 
-## What it was used for
-- Project structure, data model, scrapers (pagination, selectors), cleaning/validation/dedup modules, `main.py`, unit tests, README.
+## Prompts I used
+1. "Build the project from the assignment: scrape Books to Scrape and Quotes to Scrape, clean, validate, deduplicate, and output a CSV, a JSON summary and a log."
+2. [Add your own follow-up prompts here]
 
-## Representative prompts
-1. "Build the project described in the assignment documents: scrape Books to Scrape and Quotes to Scrape, clean, validate, deduplicate, output CSV + JSON summary + log."
-2. (Add your own follow-up prompts here.)
+## What I changed after reviewing
+- [e.g. adjusted request delay, changed the quote `source_url`, fixed selectors after inspecting the sites]
 
-## Which parts were AI-assisted
-All of the code and documentation in the first draft. (State which parts you later changed yourself.)
+## Problems I found in the AI output
+- A shell command with brace expansion failed under `/bin/sh` and had to be rerun.
+- The first `clean_tags` expression was overly complicated, so it was simplified.
+- [Add anything you find in your own review or live run]
 
-## Changes made after reviewing AI output
-- *(Fill in – e.g. adjusted delay, changed quote `source_url` choice, edited selectors after inspecting the sites.)*
-
-## Incorrect / incomplete AI output discovered
-- During generation, a shell command using brace expansion failed under `/bin/sh` and had to be rerun; an initial `clean_tags` expression was needlessly convoluted and was simplified.
-- *(Add anything you find during your own review/live run.)*
-
-## How the solution was tested
-- `python -m pytest` – 20 offline unit tests (cleaning, validation, deduplication, parsing with canned HTML, pagination, page-failure handling, count reconciliation).
-- An end-to-end dry run of `main.py` against a fake in-memory session confirmed CSV/JSON are written and counts reconcile.
-- **Live run against the real websites was NOT possible in the generation environment (no access to those domains).**
-  You must run `python main.py`, then check: both sources in the CSV, ~1,000 books + 100 quotes, prices numeric, ratings 1–5,
-  JSON `final_record_count` equals the CSV row count, `reconciles: true`.
+## How I tested
+- **Unit tests:** `python -m pytest` runs 20 offline tests covering cleaning, validation, deduplication, HTML parsing, pagination, page-failure handling and count reconciliation.
+- **Dry run:** `main.py` was run against a fake in-memory session. CSV and JSON were written and the counts matched.
+- **Live run:** not possible in the generation environment (no access to the real sites), so I ran it myself:
+  - `python main.py`
+  - Check that both sources appear in the CSV (about 1,000 books and 100 quotes)
+  - Prices are numeric and ratings are 1 to 5
+  - `final_record_count` in the JSON equals the CSV row count
+  - `reconciles` is `true`

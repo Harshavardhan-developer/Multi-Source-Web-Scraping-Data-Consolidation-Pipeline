@@ -11,7 +11,6 @@
 
 ## Prompts I used
 1. "Build the project from the assignment: scrape Books to Scrape and Quotes to Scrape, clean, validate, deduplicate, and output a CSV, a JSON summary and a log."
-2. [Add your own follow-up prompts here]
 
 ## What I changed after reviewing
 - [e.g. adjusted request delay, changed the quote `source_url`, fixed selectors after inspecting the sites]
